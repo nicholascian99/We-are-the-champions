@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+html {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+}
+
+#app-container{
+    height:100%;
+}
+
+.headers {
+  color: white;
+  font-family: josefin sans;
+  text-align: center;
+}
+
+#top-section {
+  display: flex;
+  flex-direction: column;
+  margin: 10em auto auto;
+  text-align: center;
+  height: 100%;
+}
+
+#input-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 60%;
+  margin: auto;
+  gap: 10px;
+}
+
+#textarea {
+    height: 15em;
+    background-color: #444059;
+    color: white;
+    font-family: 'inter';
+    font-size: 1.2em;
+    border-radius: 10px;
+    padding:0.5em;
+}
+
+#textarea::placeholder {
+  color: rgb(167, 167, 167);
+}
+
+button {
+  height: 2.5em;
+  background-color: #28A9F1;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: 2em;
+  border-radius: 10px;
+
+}
