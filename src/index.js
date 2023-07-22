@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js';
-import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js';
+import { getDatabase, ref, onValue} from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js';
 
 
 const firebaseConfig = {
@@ -17,7 +17,14 @@ const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
 const commentsInDB = ref(database, "Comments")
 
-console.log(commentsInDB)
+
+
+const outputEl = document.querySelector('.message-container')
+const publishButton = document.querySelector('.button')
+let input = document.querySelector('#textarea')
+
+
+clearInputEl()
 
 
 
@@ -25,7 +32,54 @@ console.log(commentsInDB)
 
 
 
-const textArea = document.querySelector('#textarea')
 
-textArea.textContent = ""
+
+publishButton.addEventListener('click', function(){
+
+    
+
+    if(input.value.trim() ===""){
+    
+    }else{
+    appendEndorsements()
+    clearInputEl()
+    }
+        
+})
+
+
+
+
+
+onValue(commentsInDB, function(snapshot){
+    let commentsArray = Object.values(snapshot.val())
+    
+    for(let i = 0; i < commentsArray.length; i++){
+        let currentComment = commentsArray[i]
+        appendEndorsements(currentComment)
+    }
+})
+
+
+
+
+function appendEndorsements(){
+    let endorsements = document.createElement('li')
+    let inputValue = input.value
+    
+    endorsements.innerHTML = `${inputValue}`
+    endorsements.classList.add('messages')
+    outputEl.append(endorsements)
+
+}
+
+
+
+
+
+function clearInputEl(){
+    input.value = ""
+}
+
+
 
