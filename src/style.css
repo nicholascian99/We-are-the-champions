@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+*{
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  background-color: #1B1924;
+}
+
+#app-container{
+    height:100%;
+}
+
+#freddie {
+  width:10em;
+}
+
+.headers {
+  color: white;
+  font-family: josefin sans;
+  text-align: center;
+}
+
+#top-section {
+  display: flex;
+  flex-direction: column;
+  margin: 2em auto auto;
+  text-align: center;
+  height: 55%;
+  
+}
+
+#input-container {
+  display: flex;
+  flex-direction: column;
+  width: 38em;
+  height: 60%;
+  margin: auto;
+  gap: 10px;
+}
+
+#textarea {
+    height: 15em;
+    background-color: #444059;
+    color: white;
+    font-family: 'inter';
+    font-size: 1.2em;
+    border-radius: 10px;
+    padding:0.5em;
+}
+
+#textarea::placeholder {
+  color: rgb(167, 167, 167);
+}
+
+.button {
+  height: 2.5em;
+  background-color: #28A9F1;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: 2em;
+  border-radius: 10px;
+
+}
+
+#bottom-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:45%;
+  width:100%;
+}
+
+.message-container{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 38em;
+  margin: auto;
+  padding:0;
+}
+
+.messages{
+  font-family: 'inter';
+  font-size: 0.9em;
+  font-weight: 400;
+  background-color: white ;
+  min-height: 5em;
+  padding: 1em 0 0 1em;
+  width:100%;
+  list-style: none;
+}
+
