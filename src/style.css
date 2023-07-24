@@ -82,7 +82,6 @@ body{
 .message-container{
   display: flex;
   flex-direction: column;
-  gap: 1em;
   width: 38em;
   margin: auto;
   padding:0;
@@ -97,5 +96,6 @@ body{
   padding: 1em 0 0 1em;
   width:100%;
   list-style: none;
+  margin-bottom:2em;
 }
 
