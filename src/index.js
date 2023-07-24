@@ -19,7 +19,9 @@ const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
 const commentsInDB = ref(database, "Comments")
 
-////
+////------------------------------------------------------------------------------------------>>
+
+
 const outputEl = document.querySelector('.message-container')
 const publishButton = document.querySelector('.button')
 const input = document.querySelector('#textarea')
@@ -43,10 +45,10 @@ onValue(commentsInDB, function(snapshot){
     let currentComment = ""
     clearOutputEl()
     for(let i = 0; i < commentsArray.length; i++){
-                 currentComment = commentsArray[i]
-                 appendComments(currentComment)
+        currentComment = commentsArray[i]
+        appendComments(currentComment)
     }
-     clearInputEl()
+    clearInputEl()
 })
 
 //a function to clear the outPut element that was useful for debugging
