@@ -1,15 +1,15 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js';
-import { getDatabase, ref, onValue} from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js';
+import { getDatabase, ref, onValue, push} from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js';
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCjqXLXnVZNfnQu1aSnpP4GXxkfrZY-Ep4",
-    authDomain: "we-are-the-champions-2f47f.firebaseapp.com",
-    databaseURL: "https://we-are-the-champions-2f47f-default-rtdb.firebaseio.com",
-    projectId: "we-are-the-champions-2f47f",
-    storageBucket: "we-are-the-champions-2f47f.appspot.com",
-    messagingSenderId: "519804551298",
-    appId: "1:519804551298:web:9abc3a6c9e793b31dc349b"
+    apiKey: "AIzaSyCybPbrYOVAOACO3GvqlbHO_4-9EVso_Ys",
+    authDomain: "we-are-the-champions-40fa8.firebaseapp.com",
+    databaseURL: "https://we-are-the-champions-40fa8-default-rtdb.firebaseio.com",
+    projectId: "we-are-the-champions-40fa8",
+    storageBucket: "we-are-the-champions-40fa8.appspot.com",
+    messagingSenderId: "810118891121",
+    appId: "1:810118891121:web:cbd10b5ae42a05229d7dd0"
 };
 
 
@@ -21,7 +21,7 @@ const commentsInDB = ref(database, "Comments")
 
 const outputEl = document.querySelector('.message-container')
 const publishButton = document.querySelector('.button')
-let input = document.querySelector('#textarea')
+const input = document.querySelector('#textarea')
 
 
 clearInputEl()
@@ -32,42 +32,45 @@ clearInputEl()
 
 
 
+// when clicked, trim the input to equal an empty space, then, if it's not empty, run the functions that
+//will append the input into the list, and then clear the input field
 
-
-publishButton.addEventListener('click', function(){
-
+// publishButton.addEventListener('click', function(){
     
-
-    if(input.value.trim() ===""){
     
-    }else{
-    appendEndorsements()
-    clearInputEl()
-    }
+    
+//     if(input.value.trim() ===""){
         
-})
+//     }else{
 
-
-
-
+        //takes a snapshot of the data in the database, which here, is the comments in the database
+//this then will append the Endorsements with the current comment as the perimeter
 
 onValue(commentsInDB, function(snapshot){
-    let commentsArray = Object.values(snapshot.val())
+    // let commentsArray = Object.values(snapshot.val())
+
+    console.log(snapshot.val())
     
-    for(let i = 0; i < commentsArray.length; i++){
-        let currentComment = commentsArray[i]
-        appendEndorsements(currentComment)
-    }
-})
+            // for(let i = 0; i < commentsArray.length; i++){
+            //     let currentComment = commentsArray[i]
+            //     appendEndorsements(currentComment)
+            //     clearInputEl()
+            })
+        // })
+//     }
+        
+// })
 
 
 
 
-function appendEndorsements(){
+
+//create an li element with text from the input value and append it to the ul 
+
+function appendEndorsements(comment){
     let endorsements = document.createElement('li')
-    let inputValue = input.value
     
-    endorsements.innerHTML = `${inputValue}`
+    endorsements.innerHTML = `${comment}`
     endorsements.classList.add('messages')
     outputEl.append(endorsements)
 
@@ -75,7 +78,7 @@ function appendEndorsements(){
 
 
 
-
+//clear the input element
 
 function clearInputEl(){
     input.value = ""
