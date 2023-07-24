@@ -35,33 +35,46 @@ clearInputEl()
 // when clicked, trim the input to equal an empty space, then, if it's not empty, run the functions that
 //will append the input into the list, and then clear the input field
 
-// publishButton.addEventListener('click', function(){
+ publishButton.addEventListener('click', function(){
     
     
-    
-//     if(input.value.trim() ===""){
-        
-//     }else{
 
+    
+     if(input.value.trim() ===""){
+        
+    }else{
+        
+        handleClick(input.value)
+    }
+    }
+ ) 
         //takes a snapshot of the data in the database, which here, is the comments in the database
 //this then will append the Endorsements with the current comment as the perimeter
 
 onValue(commentsInDB, function(snapshot){
-    // let commentsArray = Object.values(snapshot.val())
-
-    console.log(snapshot.val())
-    
-            // for(let i = 0; i < commentsArray.length; i++){
-            //     let currentComment = commentsArray[i]
-            //     appendEndorsements(currentComment)
-            //     clearInputEl()
-            })
-        // })
-//     }
-        
-// })
+     let commentsArray = Object.values(snapshot.val())
+     let currentComment = ""
+     clearOutputEl()
+     for(let i = 0; i < commentsArray.length; i++){
+                 currentComment = commentsArray[i]
+                 
+                 appendEndorsements(currentComment)
+                }
+     clearInputEl()
+       })
 
 
+function clearOutputEl(){
+    outputEl.innerHTML = ""
+}
+
+//pushes the new comment into the database
+
+function handleClick(newComment){
+    clearOutputEl()
+
+    push(commentsInDB, newComment)
+}
 
 
 
@@ -77,6 +90,10 @@ function appendEndorsements(comment){
 }
 
 
+
+// function handleClick(){
+
+// }
 
 //clear the input element
 
