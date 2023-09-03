@@ -12,7 +12,7 @@ const firebaseConfig = {
     storageBucket: "we-are-the-champions-40fa8.appspot.com",
     messagingSenderId: "810118891121",
     appId: "1:810118891121:web:cbd10b5ae42a05229d7dd0"
-};
+}
 
 
 const app = initializeApp(firebaseConfig)
